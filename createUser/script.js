@@ -24,6 +24,7 @@ const lNameInput = document.querySelector(".lastName");
 const nickInput = document.querySelector(".nick");
 const birthYearInput = document.querySelector(".birthYear");
 const submit = document.querySelector(".submit");
+const taken = document.querySelector(".taken");
 
 // Create User with webpage
 const createUser = function () {
@@ -40,12 +41,15 @@ const createUser = function () {
     );
     alert(`User created`);
   }
+  h3.textContent = Users.map((user) => ` ${user.nick}`);
   console.log(Users);
   // reset input
   nickInput.value = "";
   fNameInput.value = "";
   lNameInput.value = "";
   birthYearInput.value = "";
+  taken.style.opacity = 1;
+  setTimeout(() => (taken.style.opacity = 0.5), 1500);
 };
 
 // Listener
@@ -53,3 +57,8 @@ submit.addEventListener("click", createUser);
 
 // Find User
 const findUser = (findnick) => Users.find(({ nick }) => nick === findnick);
+
+// Taken nicks
+const h3 = document.querySelector("h3");
+
+h3.textContent = Users.map((user) => ` ${user.nick}`);
