@@ -1,0 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #e7f5ff, #339af0);
+  background-size: 200%;
+  background-position: center;
+  color: #333;
+}
+
+h1 {
+  font-size: 4.2rem;
+  font-weight: 700;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 3.2rem;
+  text-align: center;
+}
+
+.inputs-boxes {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: min-content;
+  margin-top: 4.8rem;
+  margin-bottom: 3.2rem;
+}
+
+.input-describe {
+  margin-top: 0.6rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+input::placeholder {
+  opacity: 0.4;
+}
+
+input {
+  font-size: 2.4rem;
+  font-family: inherit;
+  padding: 0.6rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 30px 0 rgb(0, 0, 0, 0.05);
+}
+
+.submit {
+  text-transform: uppercase;
+  padding: 1.2rem 2.4rem;
+  transition: all 0.5s;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fefefe;
+  background-color: #1864ab;
+}
+
+.submit:hover {
+  opacity: 0.8;
+}
+
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.5rem #1c7ed6;
+  border-radius: 5px;
+}
