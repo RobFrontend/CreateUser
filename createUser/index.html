@@ -11,8 +11,9 @@
     />
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="queries.css" />
     <script defer src="script.js"></script>
-    <title>Document</title>
+    <title>Create User</title>
   </head>
   <body>
     <div class="container">
@@ -20,7 +21,7 @@
       <div class="inputs-boxes">
         <p class="input-describe">First name:</p>
         <input class="firstName" type="string" for="fname" placeholder="John" />
-        <p class="input-describe">Last name</p>
+        <p class="input-describe">Last name:</p>
         <input class="lastName" type="string" for="lname" placeholder="Smith" />
 
         <p class="input-describe">Nick:</p>
@@ -33,6 +34,18 @@
         <h2>Nicks taken:</h2>
         <h3></h3>
       </div>
+      <div class="users-all">
+        <h2>Users</h2>
+        <div class="describe-users">
+          <p class="p-describe">First name:</p>
+          <p class="p-describe">Last name:</p>
+          <p class="p-describe">Age:</p>
+        </div>
+        <div class="created-users"></div>
+      </div>
     </div>
+    <footer>
+      <p class="copy">&copy;<span class="year">2137</span> by RobFrontend</p>
+    </footer>
   </body>
 </html>
