@@ -46,6 +46,7 @@ const taken = document.querySelector(".taken");
 const modal = document.querySelector(".modal-box");
 const btnsCloseModal = document.querySelectorAll(".modal-btn");
 const infoCreated = document.querySelector(".created-txt");
+const infoNickTaken = document.querySelector(".input-nick");
 
 const closeModal = () => modal.classList.add("hidden");
 const openModal = () => modal.classList.remove("hidden");
@@ -55,7 +56,14 @@ const createUser = function () {
   // check if that nick already exists
   const checkNick = Users.some(({ nick }) => nick === nickInput.value);
   if (checkNick === true) {
-    alert(`Nick '${nickInput.value}' already exists`);
+    // alert(`Nick '${nickInput.value}' already exists`);
+    infoNickTaken.style.color = "#D0342C";
+    infoNickTaken.textContent = `Nick '${nickInput.value}' is taken!`;
+    infoNickTaken.style.opacity = "1";
+    setTimeout(() => {
+      infoNickTaken.style.color = "inherit";
+      infoNickTaken.textContent = "Nick:";
+    }, 3000);
   } else if (
     nickInput.value.length >= 5 &&
     fNameInput.value.length >= 1 &&
