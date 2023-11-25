@@ -36,8 +36,6 @@ const User = function (nick, firstName, lastName, birthYear, age) {
 const rob97 = new User("rob97", "Robert", "Grabowski", "1997");
 const jan81 = new User("jan81", "Jan", "Kowalski", "1981");
 
-console.log(Users);
-
 //////////////////////////////////////////
 const fNameInput = document.querySelector(".firstName");
 const lNameInput = document.querySelector(".lastName");
@@ -45,6 +43,12 @@ const nickInput = document.querySelector(".nick");
 const birthYearInput = document.querySelector(".birthYear");
 const submit = document.querySelector(".submit");
 const taken = document.querySelector(".taken");
+const modal = document.querySelector(".modal-box");
+const btnsCloseModal = document.querySelectorAll(".modal-btn");
+const infoCreated = document.querySelector(".created-txt");
+
+const closeModal = () => modal.classList.add("hidden");
+const openModal = () => modal.classList.remove("hidden");
 
 // Create User with webpage
 const createUser = function () {
@@ -66,11 +70,18 @@ const createUser = function () {
       lNameInput.value.trim(),
       +birthYearInput.value
     );
-    alert(`User created`);
+    infoCreated.style.visibility = "visible";
+    infoCreated.style.opacity = "1";
+    setTimeout(() => {
+      infoCreated.style.opacity = "0";
+      infoCreated.style.visibility = "hidden";
+    }, 1000);
+    // alert(`User created`);
   } else {
-    alert(
-      `None field should be empty and your nick must have minimum 5 signs. The oldest date is 1920.`
-    );
+    // alert(
+    //   `None field should be empty and your nick must have minimum 5 signs. The oldest date is 1920.`
+    // );
+    openModal();
   }
   h3.textContent = Users.map((user) => ` ${user.nick}`);
   console.log(Users);
@@ -83,8 +94,17 @@ const createUser = function () {
   setTimeout(() => (taken.style.opacity = 0.5), 1500);
 };
 
-// Listener
+// Listeners
 submit.addEventListener("click", createUser);
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") createUser();
+});
+
+modal.addEventListener("click", closeModal);
+btnsCloseModal.forEach((btn) => btn.addEventListener("click", closeModal));
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") closeModal();
+});
 
 // Find User
 const findUser = (findnick) => Users.find(({ nick }) => nick === findnick);
